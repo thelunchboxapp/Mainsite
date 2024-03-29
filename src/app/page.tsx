@@ -14,7 +14,8 @@ import {
   BsTwitter,
 } from "react-icons/bs";
 import { useState } from "react";
-import FormfacadeEmbed from "@formfacade/embed-react";
+
+const FormfacadeEmbed = require('@formfacade/embed-react/dist/index')
 
 export default function Home() {
   return (
