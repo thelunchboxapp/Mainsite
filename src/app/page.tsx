@@ -91,8 +91,8 @@ function Banner() {
       <div className=" w-1/2">
         <h2 className=" text-8xl font-medium">Connecting food lovers</h2>
         <div className="mt-5">
-          <p>Track Restaurants</p>
-          <p>Save those you want to see</p>
+          <p>Track restaurants</p>
+          <p>Save those you want to experience</p>
           <p>Share your favorite restaurants with your friends</p>
         </div>
         <div className="mt-5">
@@ -116,7 +116,7 @@ function Banner() {
               Sign up to Waitlist
             </button>
           </Link> */}
-          <WishlistModal text="Sign up to Waitlist" />
+          <WishlistModal text="Join the Waitlist" />
         </div>
       </div>
       {/* SECOND SECTION OF BANNER */}
@@ -133,25 +133,35 @@ function Banner() {
 function Features() {
   const features = [
     {
-      title: "Keep track of every restaurant you go to",
+      title: "Track Every Visit",
       description:
-        "Welcome to a world of limitless possibilities, where the journey is as exhilarating as the destination, and where every moment is an opportunity to make your mark on the canvas of existence. The only limit is the extent of your imagination.",
+        "Never lose track of your dining adventures again. LunchBox allows you to effortlessly log every restaurant visit, helping you remember each unique experience.",
     },
     {
-      title: "Connect with your friends from the app",
+      title: "Connect with Friends",
       description:
-        "Welcome to a world of limitless possibilities, where the journey is as exhilarating as the destination, and where every moment is an opportunity to make your mark on the canvas of existence. The only limit is the extent of your imagination.",
+        "Share your culinary experiences, find recommendations from friends and discover new dining spots together.",
     },
     {
-      title: "Keep a diary of your dining experiences",
+      title: "Keep a Dining Diary",
       description:
-        "Welcome to a world of limitless possibilities, where the journey is as exhilarating as the destination, and where every moment is an opportunity to make your mark on the canvas of existence. The only limit is the extent of your imagination.",
+        "Record your impressions, dishes you loved, and those special moments that made each meal memorable.",
     },
     {
-      title: "Personalized AI recommendations",
+      title: "AI-Personalized recommendations",
       description:
-        "Welcome to a world of limitless possibilities, where the journey is as exhilarating as the destination, and where every moment is an opportunity to make your mark on the canvas of existence. The only limit is the extent of your imagination.",
+        "Dive into a world where your next dining spot is suggested by cutting-edge AI, personalized to match what you're in the mood for, your tastes and past experiences for an unparalleled discovery process.",
     },
+    {
+      title: "Curate Your Culinary Journey",
+      description:
+      "Save your favorite restaurants and create custom lists — whether it’s “Best Burgers in Town” or “Vegetarian-Friendly Spots in NYC,” LunchBox organizes your preferences seamlessly."
+    },
+    {
+      title: "Eco-Friendly Dining",
+      description:
+      "With a dedicated section for eco-friendly and sustainable restaurants, LunchBox supports your choices to dine in a way that's good for the planet."
+    }
   ];
 
   return (
@@ -177,29 +187,29 @@ function Features() {
   );
 }
 
-function Gallery() {
-  const images = [banner, banner, banner, banner];
-  return (
-    <div className="flex flex-col items-center py-20">
-      <h2 className=" text-5xl pb-10 font-semibold">Gallery</h2>
-      <span className=" pb-10">
-        The only limit is the extent of your imagination.
-      </span>
-      <div className="grid grid-cols-4 gap-10">
-        {images.map((item) => {
-          return <Image src={item} alt="Lunchbox App Images snapshots"></Image>;
-        })}
-      </div>
-    </div>
-  );
-}
+// function Gallery() {
+//   const images = [banner, banner, banner, banner];
+//   return (
+//     <div className="flex flex-col items-center py-20">
+//       <h2 className=" text-5xl pb-10 font-semibold">Gallery</h2>
+//       <span className=" pb-10">
+//         The only limit is the extent of your imagination.
+//       </span>
+//       <div className="grid grid-cols-4 gap-10">
+//         {images.map((item) => {
+//           return <Image src={item} alt="Lunchbox App Images snapshots"></Image>;
+//         })}
+//       </div>
+//     </div>
+//   );
+// }
 
 function ShowCase() {
   return (
     <div className="flex flex-col items-center py-20">
-      <h2 className="text-5xl pb-10 font-semibold">
+      {/* <h2 className="text-5xl pb-10 font-semibold">
         Discover a world of possibilities
-      </h2>
+      </h2> */}
       <div className=" mt-5">
         {/* <Link href="/">
           <button className="p-3 mr-2 bg-[#1e1e1e] text-white">
