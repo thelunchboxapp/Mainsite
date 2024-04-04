@@ -23,7 +23,7 @@ export default function Home() {
       <Header />
       <Banner />
       <Features />
-      <Gallery />
+      {/* <Gallery /> */}
       <ShowCase />
       <WebFooter />
     </main>
