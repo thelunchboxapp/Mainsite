@@ -211,7 +211,7 @@ function WishlistModal({ text }: { text?: string }) {
 
 function Banner() {
   return (
-    <div className="flex flex-col m-2 justify-between items-center mt-10 mb-20">
+    <div className="flex flex-col m-2 justify-between items-center my-20">
       {/* FIRST SECTION OF BANNER */}
       <div className="flex justify-center w-52">
         <Image
