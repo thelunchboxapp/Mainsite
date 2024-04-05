@@ -64,7 +64,6 @@ export function Header() {
         </button>
         <AnimatePresence>
           {isToggled && (
-            <>
             <motion.div
               className="navbar"
               initial="hidden"
@@ -74,8 +73,6 @@ export function Header() {
             >
               <NavbarItems isToggled={isToggled} />
             </motion.div>
-            {/* <div className="absolute top-10 bottom-0 left-0 right-0 bg-white"></div> */}
-            </>
           )}
         </AnimatePresence>
       </>
@@ -226,11 +223,11 @@ function Banner() {
       <div>
         {/* <h2 className=" text-8xl font-medium">Connecting food lovers</h2> */}
         <div className="mt-5 flex items-center flex-col">
-          <p className=" md:text-2xl text-center font-semibold">Track restaurants</p>
-          <p className=" md:text-2xl text-center font-semibold">
+          <p className=" md:text-2xl text-sm font-semibold">Track restaurants</p>
+          <p className=" md:text-2xl text-sm font-semibold">
             Save those you want to experience
           </p>
-          <p className=" md:text-2xl text-center font-semibold">
+          <p className=" md:text-2xl text-sm font-semibold">
             Share your favorite restaurants with your friends
           </p>
         </div>
