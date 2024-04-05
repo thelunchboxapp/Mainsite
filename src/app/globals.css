@@ -3,5 +3,49 @@
 @tailwind utilities;
 
 .features-box-shadow {
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
+
+.features-card:hover .hashtag {
+  visibility: visible;
+}
+
+.hashtag {
+  visibility: hidden;
+}
+
+.btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border-style: none;
+    background: black;
+    cursor: pointer;
+    z-index: 1;
+    color: white
+  }
+  
+  .navbar {
+    position: absolute;
+    z-index: 20;
+    margin: none;
+    border-radius: 16px;
+    /*background-color: turquoise;*/
+    background: linear-gradient(to top, #000000, #262528);
+  }
+  
+  .navList {
+    padding: 100px 70px 130px 70px;
+  }
+  
+  .nav-item {
+    font-size: 25px;
+    list-style: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  h4 {
+    margin-block-start: 1px;
+    margin-block-end: 1px;
+  }

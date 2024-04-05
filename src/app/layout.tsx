@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Raleway, Poppins } from "next/font/google";
 import "./globals.css";
 import { Header, WebFooter } from "./page";
 
-const inter = Inter({ subsets: ["latin"], display: "block" });
+const raleway = Raleway({ subsets: ["latin"], display: "block" });
+const poppins = Poppins({ subsets: ['latin'], display: 'block', weight: ['100', '200', '300', '600', '800'] })
 
 export const metadata: Metadata = {
   title: "LunchBox - Meeting place for restaurant enthusiasts",
@@ -17,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={poppins.className}>
         <Header />
         {children}
         <WebFooter />

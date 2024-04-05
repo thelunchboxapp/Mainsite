@@ -15,69 +15,174 @@ import {
 } from "react-icons/bs";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import { features } from "../../data/data";
+import { AnimatePresence, motion } from "framer-motion";
 
 const FormfacadeEmbed = require("@formfacade/embed-react/dist/index");
 
 export default function Home() {
   return (
-    <main className="px-16">
-      {/* <Header /> */}
+    <main className="sm:px-32">
       <Banner />
       <Features />
-      {/* <Gallery /> */}
       <ShowCase />
-      {/* <WebFooter /> */}
     </main>
   );
 }
 
 export function Header() {
   const pathname = usePathname();
-  const active = 'p-3 px-5 rounded-md m-1 bg-[#1e1e1e] text-white'
-  const notActive = 'p-3 px-5 rounded-md m-1 text-[#1e1e1e] bg-white'
-  
+  const active = "py-3 px-5 rounded-md m-1 bg-[#1e1e1e] text-white";
+  const notActive = "py-3 px-5 rounded-md m-1 text-[#1e1e1e] bg-white";
+
+  const Navbar = () => {
+    const [isToggled, setToggle] = useState(false);
+
+    const navContainer = {
+      visible: {
+        //x: 0,
+        opacity: 1,
+        transition: {
+          x: { velocity: 100 },
+          duration: 0.3,
+        },
+      },
+      hidden: {
+        //x: -250,
+        opacity: 0,
+        transition: {
+          x: { velocity: 100 },
+          duration: 0.3,
+        },
+      },
+    };
+
+    return (
+      <>
+        <button className="btn" onClick={() => setToggle(!isToggled)}>
+          =
+        </button>
+        <AnimatePresence>
+          {isToggled && (
+            <motion.div
+              className="navbar"
+              initial="hidden"
+              animate={isToggled ? "visible" : "hidden"}
+              exit="hidden"
+              variants={navContainer}
+            >
+              <NavbarItems isToggled={isToggled} />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </>
+    );
+  };
+
+  const navigation = [
+    { name: "Home", href: "" },
+    { name: "Features", href: "features" },
+    { name: "Contact us", href: "contact" },
+  ];
+
+  const NavbarItems = ({ isToggled }: any) => {
+    const navList = {
+      visible: {
+        opacity: 1,
+        transition: {
+          delayChildren: 0.2,
+          staggerChildren: 0.07,
+        },
+      },
+      hidden: {
+        opacity: 0,
+        transition: {
+          staggerChildren: 0.05,
+          staggerDirection: -1,
+        },
+      },
+    };
+
+    const navItem = {
+      visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+          y: { stiffness: 1000, velocity: -100 },
+        },
+      },
+      hidden: {
+        y: 50,
+        opacity: 0,
+        transition: {
+          y: { stiffness: 1000, velocity: -100 },
+        },
+      },
+    };
+
+    return (
+      <>
+        <motion.ul
+          className="navList"
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+          variants={navList}
+        >
+          {navigation.map((item) => (
+            <Link href={'/' + item.href}>
+              <motion.li
+                className="nav-item"
+                variants={navItem}
+                key={item.name}
+              >
+                <p>{item.name}</p>
+              </motion.li>
+            </Link>
+          ))}
+        </motion.ul>
+      </>
+    );
+  };
+
   return (
-    <nav className="flex justify-between py-10">
+    <nav className="flex items-center md:justify-between m-2 py-3 sticky top-0 bg-white z-10 px-4 lg:px-32 border-b-[1px]">
+      <div className="block md:hidden pr-10">
+        <Navbar />
+      </div>
       <div className="flex items-center">
-        <Image
+        {/* <Image
           src={logo}
           width={80}
           height={80}
-          alt="Lunchbox, 'THE' meeting place for restaurant lovers"
-        />
+          alt="Lunchbox logo"
+          className="hidden sm:block"
+        /> */}
         <span className="text-3xl font-semibold">Lunchbox</span>
       </div>
-      <div>
+      <div className="hidden md:flex items-center">
         <WishlistModal />
-        <Link href="/">
-          <button className={ pathname === '/' ? active : notActive }>
-            Home
-          </button>
-        </Link>
-        <Link href="/features">
-          <button className={pathname === '/features' ? active : notActive}>
-            Features
-          </button>
-        </Link>
-        <Link href="/about">
-          <button className={pathname === '/about' ? active : notActive}>
-            About
-          </button>
-        </Link>
-        <Link href="/contact">
-          <button className={pathname === '/contact' ? active : notActive}>
-            Contact us
-          </button>
-        </Link>
+
+        {navigation.map((item) => {
+          return (
+            <Link href={"/" + item.href}>
+              <button
+                className={pathname === "/" + item.href ? active : notActive}
+              >
+                {item.name}
+              </button>
+            </Link>
+          );
+        })}
       </div>
     </nav>
   );
 }
 
-export function WishlistModal({ text }: { text?: string }) {
+function WishlistModal({ text }: { text?: string }) {
   const [openModal, setOpenModal] = useState(false);
   return (
-    <>
+    <div className="flex items-center justify-center">
       <button
         className={
           text ? "p-3 rounded-md mr-2 bg-[#1e1e1e] text-white" : "p-3 m-1"
@@ -100,106 +205,66 @@ export function WishlistModal({ text }: { text?: string }) {
           </button>
         </Modal.Footer>
       </Modal>
-    </>
+    </div>
   );
 }
 
 function Banner() {
   return (
-    <div className="flex justify-between items-center my-20">
+    <div className="flex flex-col m-2 justify-between items-center mt-10 mb-20">
       {/* FIRST SECTION OF BANNER */}
-      <div className=" w-1/2">
-        <h2 className=" text-8xl font-medium">Connecting food lovers</h2>
-        <div className="mt-5">
-          <p>Track restaurants</p>
-          <p>Save those you want to experience</p>
-          <p>Share your favorite restaurants with your friends</p>
-        </div>
-        <div className="mt-5">
-          {/* <Link href="/">
-            <button className="p-3 mr-2 bg-[#1e1e1e] text-white">
-              Coming soon to Android
-            </button>
-          </Link>
-          <Link href="/">
-            <button className="p-3 mr-2 bg-[#1e1e1e] text-white">
-              Coming soon to IOS
-            </button>
-          </Link> */}
-          <h2 className="font-bold text-lg">
-            Coming soon to the App store and Play Store
-          </h2>
-        </div>
-        <div className="mt-5">
-          {/* <Link href="/">
-            <button className="p-3 rounded-md mr-2 bg-[#1e1e1e] text-white">
-              Sign up to Waitlist
-            </button>
-          </Link> */}
-          <WishlistModal text="Join the Waitlist" />
-        </div>
-      </div>
-      {/* SECOND SECTION OF BANNER */}
-      <div className=" w-1/2 flex justify-center">
+      <div className="flex justify-center w-52">
         <Image
           src={banner}
           alt="Lunchbox banner: 'The' meeting place for restaurant enthusiasts"
         />
+      </div>
+      {/* FIRST SECTION OF BANNER */}
+      <div>
+        {/* <h2 className=" text-8xl font-medium">Connecting food lovers</h2> */}
+        <div className="mt-5 flex items-center flex-col">
+          <p className=" md:text-2xl text-xs font-semibold">Track restaurants</p>
+          <p className=" md:text-2xl text-xs font-semibold">
+            Save those you want to experience
+          </p>
+          <p className=" md:text-2xl text-xs font-semibold">
+            Share your favorite restaurants with your friends
+          </p>
+        </div>
+        <div className="mt-5"></div>
+        <div className="mt-5">
+          <WishlistModal text="Join the Waitlist" />
+        </div>
       </div>
     </div>
   );
 }
 
 function Features() {
-  const features = [
-    {
-      title: "Track Every Visit",
-      description:
-        "Never Miss a Beat of Your Culinary Adventures! Rate your meals, snap and share photos, and jot down those unforgettable flavors. With each visit logged, watch your culinary journey unfold, a treasure trove of memories at your fingertips, urging you to explore and relive every delicious moment.",
-    },
-    {
-      title: "Connect with Friends",
-      description:
-        "Share the Joy of Discovery with Friends! Follow your friends to see their culinary escapades, exchange recommendations, and plan your next group outing with ease. It's not just about eating; it's about connecting, sharing, and celebrating the world of food together. Join the community where every shared dish is a recipe for stronger bonds.",
-    },
-    {
-      title: "Keep a Dining Diary",
-      description:
-        "Your Personal Culinary Chronicle Awaits! Cultivate a collection of personal stories and cherished memories.  Our intuitive logging system transforms your dining experiences into a beautifully curated collection of memories, helping you revisit those special moments with just a tap.",
-    },
-    {
-      title: "AI-Personalized recommendations",
-      description:
-        "Discover Your Next Favorite Dish with AI! Our cutting-edge 'Personalized Recommendations' feature is like having a gourmet guide at your side, always ready to suggest the next great restaurant tailored specifically to you. Powered by sophisticated AI algorithms, we analyze your preferences, past experiences, and even your friends' favorites to recommend places you'll love. Tell us what you’re in the mood for and embark on a culinary exploration fine-tuned to your tastes!",
-    },
-    {
-      title: "Curate Your Culinary Journey",
-      description:
-        "Craft Your Ultimate Dining Experience! With LunchBox, organizing your dining preferences has never been easier. From bookmarking your all-time favorite eateries to creating bespoke lists like “City's Best Coffee Shops” or “Seafood Must-Visits,” our platform is your canvas. Curate lists that reflect your culinary ambitions, making every dining decision an informed choice. Start shaping your unique culinary journey today, one list at a time.",
-    },
-    {
-      title: "Eco-Friendly Dining",
-      description:
-        "Dine with a Conscience. In a world where sustainability is key, LunchBox champions the choice to dine responsibly. Our dedicated section for eco-friendly dining options highlights restaurants committed to sustainability, from sourcing ingredients locally to innovative practices reducing their carbon footprint. Support eateries that care for the planet as much as they do for their food. With LunchBox, making green dining choices is easy, helping you contribute to a healthier planet with every meal.",
-    },
-  ];
-
   return (
-    <div className="flex flex-col justify-around items-center">
-      {/* SECOND SECTION OF BANNER */}
+    <div className="flex flex-col justify-around items-center py-10">
       <div className="">
         <Image
           src={screens}
           alt="Lunchbox banner: 'The' meeting place for restaurant enthusiasts"
         />
       </div>
-      <div className="my-10 grid grid-cols-1 gap-5 md:grid-cols-3">
+      <div className="my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {features.map((item) => {
           return (
-            <div className="p-5 min-w-80 min-h-80 m-2 flex items-baseline flex-col rounded-md features-box-shadow">
-              <h2 className=" text-xl font-semibold">{item.title}</h2>
-              <p className=" text-justify pt-5">{item.description}</p>
-            </div>
+            <Link
+              href={"/features/#" + item.id}
+              key={item.id}
+              className="features-card p-5 m-2 flex items-baseline flex-col rounded-md features-box-shadow cursor-pointer hover:scale-105 transition-all relative"
+            >
+              <div>
+                <h2 className=" text-xl font-semibold">{item.title}</h2>
+              </div>
+              <p className="absolute right-5 top-5 font-semibold text-slate-500 hashtag">
+                #
+              </p>
+              <p className=" text-justify pt-5">{item.shortDescription}</p>
+            </Link>
           );
         })}
       </div>
@@ -224,13 +289,13 @@ function Features() {
 //   );
 // }
 
-function ShowCase() {
+export function ShowCase() {
   return (
     <div className="flex flex-col items-center">
       {/* <h2 className="text-5xl pb-10 font-semibold">
         Discover a world of possibilities
       </h2> */}
-      <div className=" mt-5">
+      <div className="mb-20 mt-5">
         {/* <Link href="/">
           <button className="p-3 mr-2 bg-[#1e1e1e] text-white">
             Coming soon to Android
@@ -241,7 +306,10 @@ function ShowCase() {
             Coming soon to IOS
           </button>
         </Link> */}
-        <h2 className="font-bold text-lg">Coming soon to Android and IOS</h2>
+        <h2 className="font-bold text-lg py-10">
+          Coming soon to Android and IOS
+        </h2>
+        <WishlistModal text="Join the Waitlist" />
       </div>
     </div>
   );
