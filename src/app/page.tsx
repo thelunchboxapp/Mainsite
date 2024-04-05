@@ -14,39 +14,59 @@ import {
   BsTwitter,
 } from "react-icons/bs";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
-const FormfacadeEmbed = require('@formfacade/embed-react/dist/index')
+const FormfacadeEmbed = require("@formfacade/embed-react/dist/index");
 
 export default function Home() {
   return (
     <main className="px-16">
-      <Header />
+      {/* <Header /> */}
       <Banner />
       <Features />
       {/* <Gallery /> */}
       <ShowCase />
-      <WebFooter />
+      {/* <WebFooter /> */}
     </main>
   );
 }
 
-function Header() {
+export function Header() {
+  const pathname = usePathname();
+  const active = 'p-3 px-5 rounded-md m-1 bg-[#1e1e1e] text-white'
+  const notActive = 'p-3 px-5 rounded-md m-1 text-[#1e1e1e] bg-white'
+  
   return (
     <nav className="flex justify-between py-10">
       <div className="flex items-center">
         <Image
           src={logo}
-          width={50}
-          height={50}
+          width={80}
+          height={80}
           alt="Lunchbox, 'THE' meeting place for restaurant lovers"
         />
-        <span className="text-xl font-semibold">Lunchbox</span>
+        <span className="text-3xl font-semibold">Lunchbox</span>
       </div>
       <div>
         <WishlistModal />
         <Link href="/">
-          <button className="p-3 px-5 rounded-md m-1 bg-[#1e1e1e] text-white">
+          <button className={ pathname === '/' ? active : notActive }>
+            Home
+          </button>
+        </Link>
+        <Link href="/features">
+          <button className={pathname === '/features' ? active : notActive}>
+            Features
+          </button>
+        </Link>
+        <Link href="/about">
+          <button className={pathname === '/about' ? active : notActive}>
             About
+          </button>
+        </Link>
+        <Link href="/contact">
+          <button className={pathname === '/contact' ? active : notActive}>
+            Contact us
           </button>
         </Link>
       </div>
@@ -54,7 +74,7 @@ function Header() {
   );
 }
 
-function WishlistModal({ text }: { text?: string }) {
+export function WishlistModal({ text }: { text?: string }) {
   const [openModal, setOpenModal] = useState(false);
   return (
     <>
@@ -135,37 +155,37 @@ function Features() {
     {
       title: "Track Every Visit",
       description:
-        "Never lose track of your dining adventures again. LunchBox allows you to effortlessly log every restaurant visit, helping you remember each unique experience.",
+        "Never Miss a Beat of Your Culinary Adventures! Rate your meals, snap and share photos, and jot down those unforgettable flavors. With each visit logged, watch your culinary journey unfold, a treasure trove of memories at your fingertips, urging you to explore and relive every delicious moment.",
     },
     {
       title: "Connect with Friends",
       description:
-        "Share your culinary experiences, find recommendations from friends and discover new dining spots together.",
+        "Share the Joy of Discovery with Friends! Follow your friends to see their culinary escapades, exchange recommendations, and plan your next group outing with ease. It's not just about eating; it's about connecting, sharing, and celebrating the world of food together. Join the community where every shared dish is a recipe for stronger bonds.",
     },
     {
       title: "Keep a Dining Diary",
       description:
-        "Record your impressions, dishes you loved, and those special moments that made each meal memorable.",
+        "Your Personal Culinary Chronicle Awaits! Cultivate a collection of personal stories and cherished memories.  Our intuitive logging system transforms your dining experiences into a beautifully curated collection of memories, helping you revisit those special moments with just a tap.",
     },
     {
       title: "AI-Personalized recommendations",
       description:
-        "Dive into a world where your next dining spot is suggested by cutting-edge AI, personalized to match what you're in the mood for, your tastes and past experiences for an unparalleled discovery process.",
+        "Discover Your Next Favorite Dish with AI! Our cutting-edge 'Personalized Recommendations' feature is like having a gourmet guide at your side, always ready to suggest the next great restaurant tailored specifically to you. Powered by sophisticated AI algorithms, we analyze your preferences, past experiences, and even your friends' favorites to recommend places you'll love. Tell us what you’re in the mood for and embark on a culinary exploration fine-tuned to your tastes!",
     },
     {
       title: "Curate Your Culinary Journey",
       description:
-      "Save your favorite restaurants and create custom lists — whether it’s “Best Burgers in Town” or “Vegetarian-Friendly Spots in NYC,” LunchBox organizes your preferences seamlessly."
+        "Craft Your Ultimate Dining Experience! With LunchBox, organizing your dining preferences has never been easier. From bookmarking your all-time favorite eateries to creating bespoke lists like “City's Best Coffee Shops” or “Seafood Must-Visits,” our platform is your canvas. Curate lists that reflect your culinary ambitions, making every dining decision an informed choice. Start shaping your unique culinary journey today, one list at a time.",
     },
     {
       title: "Eco-Friendly Dining",
       description:
-      "With a dedicated section for eco-friendly and sustainable restaurants, LunchBox supports your choices to dine in a way that's good for the planet."
-    }
+        "Dine with a Conscience. In a world where sustainability is key, LunchBox champions the choice to dine responsibly. Our dedicated section for eco-friendly dining options highlights restaurants committed to sustainability, from sourcing ingredients locally to innovative practices reducing their carbon footprint. Support eateries that care for the planet as much as they do for their food. With LunchBox, making green dining choices is easy, helping you contribute to a healthier planet with every meal.",
+    },
   ];
 
   return (
-    <div className="flex flex-col justify-around items-center my-40">
+    <div className="flex flex-col justify-around items-center">
       {/* SECOND SECTION OF BANNER */}
       <div className="">
         <Image
@@ -173,10 +193,10 @@ function Features() {
           alt="Lunchbox banner: 'The' meeting place for restaurant enthusiasts"
         />
       </div>
-      <div className="my-10 flex flex-wrap justify-evenly">
+      <div className="my-10 grid grid-cols-1 gap-5 md:grid-cols-3">
         {features.map((item) => {
           return (
-            <div className="p-5 w-80 h-80 m-2 flex items-baseline flex-col rounded-md features-box-shadow">
+            <div className="p-5 min-w-80 min-h-80 m-2 flex items-baseline flex-col rounded-md features-box-shadow">
               <h2 className=" text-xl font-semibold">{item.title}</h2>
               <p className=" text-justify pt-5">{item.description}</p>
             </div>
@@ -206,7 +226,7 @@ function Features() {
 
 function ShowCase() {
   return (
-    <div className="flex flex-col items-center py-20">
+    <div className="flex flex-col items-center">
       {/* <h2 className="text-5xl pb-10 font-semibold">
         Discover a world of possibilities
       </h2> */}
@@ -227,7 +247,7 @@ function ShowCase() {
   );
 }
 
-function WebFooter() {
+export function WebFooter() {
   return (
     <Footer container>
       <div className="w-full sm:flex sm:items-center sm:justify-between">
