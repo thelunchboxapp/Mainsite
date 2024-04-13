@@ -222,7 +222,7 @@ function Banner() {
       {/* FIRST SECTION OF BANNER */}
       <div>
         {/* <h2 className=" text-8xl font-medium">Connecting food lovers</h2> */}
-        <div className="mt-5 flex items-center flex-col">
+        <div className="mt-5 flex text-center items-center flex-col">
           <p className=" md:text-2xl text-sm font-semibold">Track restaurants</p>
           <p className=" md:text-2xl text-sm font-semibold">
             Save those you want to experience
@@ -260,9 +260,6 @@ function Features() {
               <div>
                 <h2 className=" text-xl font-semibold">{item.title}</h2>
               </div>
-              <p className="absolute right-5 top-5 font-semibold text-slate-500 hashtag">
-                #
-              </p>
               <p className=" text-justify pt-5">{item.shortDescription}</p>
             </Link>
           );
