@@ -2,17 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth !important;
+}
+
 .features-box-shadow {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
-.features-card:hover .hashtag {
+/* .features-card:hover .hashtag {
   visibility: visible;
 }
 
 .hashtag {
   visibility: hidden;
-}
+} */
 
 .btn {
     width: 40px;

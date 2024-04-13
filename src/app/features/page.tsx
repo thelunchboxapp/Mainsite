@@ -33,7 +33,7 @@ function Features() {
     <div className="py-10">
       {features.map((item) => {
         return (
-          <div className="mb-10" id={item.id}>
+          <div id={item.id} className="mb-10 scroll-mt-[85px]" >
             <h2 className="pb-5 md:text-xl font-bold">{item.title}</h2>
             <p className="md:text-lg"> {item.description} </p>
           </div>
