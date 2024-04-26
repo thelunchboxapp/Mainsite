@@ -1,7 +1,11 @@
 "use client";
 import Image from "next/image";
 import logo from "../../public/logo.png";
-import banner from "../../public/model_for_iPhone.png";
+import banner from "../../public/main.png";
+import screen1 from '../../public/preview1.png'
+import screen2 from '../../public/preview2.png'
+import screen3 from '../../public/preview3.png'
+import screen4 from '../../public/preview4.png'
 import screens from "../../public/multiple_devices.png";
 import Link from "next/link";
 import { Footer, Modal } from "flowbite-react";
@@ -211,7 +215,7 @@ function WishlistModal({ text }: { text?: string }) {
 
 function Banner() {
   return (
-    <div className="flex flex-col m-2 justify-between items-center my-20">
+    <div className="flex flex-col m-2 justify-between items-center my-10">
       {/* FIRST SECTION OF BANNER */}
       <div className="flex justify-center w-52">
         <Image
@@ -243,10 +247,26 @@ function Banner() {
 function Features() {
   return (
     <div className="flex flex-col justify-around items-center py-10">
-      <div className="">
+      <div className="grid grid-cols-2 px-2 sm:grid-cols-2 md:grid-cols-4 gap-2 sm:gap-5">
         <Image
-          src={screens}
+          src={screen1}
           alt="Lunchbox banner: 'The' meeting place for restaurant enthusiasts"
+          width={200}
+        />
+        <Image
+          src={screen2}
+          alt="Lunchbox banner: 'The' meeting place for restaurant enthusiasts"
+          width={200}
+        />
+        <Image
+          src={screen3}
+          alt="Lunchbox banner: 'The' meeting place for restaurant enthusiasts"
+          width={200}
+        />
+        <Image
+          src={screen4}
+          alt="Lunchbox banner: 'The' meeting place for restaurant enthusiasts"
+          width={200}
         />
       </div>
       <div className="my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
