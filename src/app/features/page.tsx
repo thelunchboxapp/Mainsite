@@ -8,7 +8,7 @@ function Page() {
   return (
     <div className="sm:px-32 px-5 relative">
       <h2 className="hidden sm:block text-center text-2xl md:text-5xl font-semibold py-5">Connecting food lovers</h2>
-      <h2 className="sm:hidden text-center text-2xl md:text-5xl font-semibold py-5">Lunchbox Features</h2>
+      <h2 className="sm:hidden text-center text-2xl md:text-5xl font-semibold py-5">LunchBox Features</h2>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
         <Card />
         <Features />
@@ -22,7 +22,7 @@ function Card() {
   return (
     <div className="py-5 col-span-2">
       <div className="sticky top-32">
-        <Image src={bannerImage} alt="Lunchbox features" />
+        <Image src={bannerImage} alt="LunchBox features" />
       </div>
     </div>
   );

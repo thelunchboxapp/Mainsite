@@ -159,10 +159,10 @@ export function Header() {
           src={logo}
           width={80}
           height={80}
-          alt="Lunchbox logo"
+          alt="LunchBox logo"
           className="hidden sm:block"
         /> */}
-        <span className="text-3xl font-semibold">Lunchbox</span>
+        <span className="text-3xl font-semibold">LunchBox</span>
       </div>
       <div className="hidden md:flex items-center">
         <WishlistModal />
@@ -220,7 +220,7 @@ function Banner() {
       <div className="flex justify-center w-52">
         <Image
           src={banner}
-          alt="Lunchbox banner: 'The' meeting place for restaurant enthusiasts"
+          alt="Lunchbox banner: 'The' social network for food lovers"
         />
       </div>
       {/* FIRST SECTION OF BANNER */}
@@ -336,7 +336,7 @@ export function WebFooter() {
   return (
     <Footer container>
       <div className="w-full sm:flex sm:items-center sm:justify-between">
-        <Footer.Copyright href="#" by="Lunchbox™" year={2024} />
+        <Footer.Copyright href="#" by="LunchBox™" year={2024} />
         <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
           <Footer.Icon href="#" icon={BsAt} />
           <Footer.Icon href="#" icon={BsFacebook} />
