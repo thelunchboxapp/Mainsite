@@ -8,18 +8,16 @@ import screen3 from "../../public/preview3.png";
 import screen4 from "../../public/preview4.png";
 import Link from "next/link";
 import { Footer, Modal } from "flowbite-react";
-import {
-  BsAt,
-  BsDribbble,
-  BsFacebook,
-  BsGithub,
-  BsInstagram,
-  BsTwitter,
-} from "react-icons/bs";
+import { BsInstagram } from "react-icons/bs";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { features } from "../../data/data";
 import { AnimatePresence, motion } from "framer-motion";
+
+import image1 from "../../public/image1.jpg";
+import image2 from "../../public/image2.jpg";
+import image3 from "../../public/image3.jpg";
+import image4 from "../../public/image4.jpg";
 
 const FormfacadeEmbed = require("@formfacade/embed-react/dist/index");
 
@@ -149,7 +147,7 @@ export function Header() {
   };
 
   return (
-    <nav className="flex items-center md:justify-between m-2 py-3 sticky top-0 bg-white z-10 px-4 max-w-6xl border-b-[1px]">
+    <nav className="flex items-center md:justify-between m-2 py-3 sticky top-0 bg-white z-10 px-4 lg:px-32 border-b-[1px]">
       <div className="block md:hidden pr-10">
         <Navbar />
       </div>
@@ -216,7 +214,7 @@ function Banner() {
       {/* FIRST SECTION OF BANNER */}
       <div className="flex justify-center w-52">
         <Image
-          src={banner}
+          src={logo}
           alt="Lunchbox banner: 'The' social network for food lovers"
         />
       </div>
@@ -248,24 +246,28 @@ function Features() {
     <div className="flex flex-col justify-around items-center py-10">
       <div className="grid grid-cols-2 px-2 sm:grid-cols-2 md:grid-cols-4 gap-2 sm:gap-5">
         <Image
-          src={screen1}
+          src={image1}
           alt="Lunchbox banner: 'The' meeting place for restaurant enthusiasts"
           width={200}
+          className="rounded-md"
         />
         <Image
-          src={screen2}
+          src={image2}
           alt="Lunchbox banner: 'The' meeting place for restaurant enthusiasts"
           width={200}
+          className="rounded-md"
         />
         <Image
-          src={screen3}
+          src={image3}
           alt="Lunchbox banner: 'The' meeting place for restaurant enthusiasts"
           width={200}
+          className="rounded-md"
         />
         <Image
-          src={screen4}
+          src={image4}
           alt="Lunchbox banner: 'The' meeting place for restaurant enthusiasts"
           width={200}
+          className="rounded-md"
         />
       </div>
       <div className="my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
