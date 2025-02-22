@@ -32,14 +32,14 @@ type Features = {
       shortDescription:
         "Record your impressions, dishes you loved, and those special moments that made each meal memorable.",
     },
-    {
-      id: '4',
-      title: "AI-Personalized recommendations",
-      description:
-        "Discover Your Next Favorite Dish with AI! Our cutting-edge 'Personalized Recommendations' feature is like having a gourmet guide at your side, always ready to suggest the next great restaurant tailored specifically to you. Powered by sophisticated AI algorithms, we analyze your preferences, past experiences, and even your friends' favorites to recommend places you'll love. Tell us what you’re in the mood for and embark on a culinary exploration fine-tuned to your tastes!",
-      shortDescription:
-        "Dive into a world where your next dining spot is suggested by cutting-edge AI, personalized to match what you're in the mood for, your tastes and past experiences for an unparalleled discovery process.",
-    },
+    // {
+    //   id: '4',
+    //   title: "AI-Personalized recommendations",
+    //   description:
+    //     "Discover Your Next Favorite Dish with AI! Our cutting-edge 'Personalized Recommendations' feature is like having a gourmet guide at your side, always ready to suggest the next great restaurant tailored specifically to you. Powered by sophisticated AI algorithms, we analyze your preferences, past experiences, and even your friends' favorites to recommend places you'll love. Tell us what you’re in the mood for and embark on a culinary exploration fine-tuned to your tastes!",
+    //   shortDescription:
+    //     "Dive into a world where your next dining spot is suggested by cutting-edge AI, personalized to match what you're in the mood for, your tastes and past experiences for an unparalleled discovery process.",
+    // },
     {
       id: '5',
       title: "Curate Your Culinary Journey",
@@ -48,12 +48,12 @@ type Features = {
       shortDescription:
         "Save your favorite restaurants and create custom lists — whether it’s “Best Burgers in Town” or “Vegetarian-Friendly Spots in NYC,” LunchBox organizes your preferences seamlessly.        ",
     },
-    {
-      id: '6',
-      title: "Eco-Friendly Dining",
-      description:
-        "Dine with a Conscience. In a world where sustainability is key, LunchBox champions the choice to dine responsibly. Our dedicated section for eco-friendly dining options highlights restaurants committed to sustainability, from sourcing ingredients locally to innovative practices reducing their carbon footprint. Support eateries that care for the planet as much as they do for their food. With LunchBox, making green dining choices is easy, helping you contribute to a healthier planet with every meal.",
-      shortDescription:
-        "With a dedicated section for eco-friendly and sustainable restaurants, LunchBox supports your choices to dine in a way that's good for the planet.",
-    },
+    // {
+    //   id: '6',
+    //   title: "Eco-Friendly Dining",
+    //   description:
+    //     "Dine with a Conscience. In a world where sustainability is key, LunchBox champions the choice to dine responsibly. Our dedicated section for eco-friendly dining options highlights restaurants committed to sustainability, from sourcing ingredients locally to innovative practices reducing their carbon footprint. Support eateries that care for the planet as much as they do for their food. With LunchBox, making green dining choices is easy, helping you contribute to a healthier planet with every meal.",
+    //   shortDescription:
+    //     "With a dedicated section for eco-friendly and sustainable restaurants, LunchBox supports your choices to dine in a way that's good for the planet.",
+    // },
   ];

@@ -2,11 +2,10 @@
 import Image from "next/image";
 import logo from "../../public/logo.png";
 import banner from "../../public/main.png";
-import screen1 from '../../public/preview1.png'
-import screen2 from '../../public/preview2.png'
-import screen3 from '../../public/preview3.png'
-import screen4 from '../../public/preview4.png'
-import screens from "../../public/multiple_devices.png";
+import screen1 from "../../public/preview1.png";
+import screen2 from "../../public/preview2.png";
+import screen3 from "../../public/preview3.png";
+import screen4 from "../../public/preview4.png";
 import Link from "next/link";
 import { Footer, Modal } from "flowbite-react";
 import {
@@ -26,7 +25,7 @@ const FormfacadeEmbed = require("@formfacade/embed-react/dist/index");
 
 export default function Home() {
   return (
-    <main className="sm:px-32">
+    <main className="max-w-6xl mx-auto">
       <Banner />
       <Features />
       <ShowCase />
@@ -134,7 +133,7 @@ export function Header() {
           variants={navList}
         >
           {navigation.map((item) => (
-            <Link href={'/' + item.href}>
+            <Link href={"/" + item.href}>
               <motion.li
                 className="nav-item"
                 variants={navItem}
@@ -150,18 +149,16 @@ export function Header() {
   };
 
   return (
-    <nav className="flex items-center md:justify-between m-2 py-3 sticky top-0 bg-white z-10 px-4 lg:px-32 border-b-[1px]">
+    <nav className="flex items-center md:justify-between m-2 py-3 sticky top-0 bg-white z-10 px-4 max-w-6xl border-b-[1px]">
       <div className="block md:hidden pr-10">
         <Navbar />
       </div>
       <div className="flex items-center">
-        {/* <Image
+        <Image
           src={logo}
-          width={80}
-          height={80}
           alt="LunchBox logo"
-          className="hidden sm:block"
-        /> */}
+          className="hidden sm:block w-10 mr-2"
+        />
         <span className="text-3xl font-semibold">LunchBox</span>
       </div>
       <div className="hidden md:flex items-center">
@@ -227,7 +224,9 @@ function Banner() {
       <div>
         {/* <h2 className=" text-8xl font-medium">Connecting food lovers</h2> */}
         <div className="mt-5 flex text-center items-center flex-col">
-          <p className=" md:text-2xl text-sm font-semibold">Track restaurants</p>
+          <p className=" md:text-2xl text-sm font-semibold">
+            Track restaurants
+          </p>
           <p className=" md:text-2xl text-sm font-semibold">
             Save those you want to experience
           </p>
@@ -269,18 +268,20 @@ function Features() {
           width={200}
         />
       </div>
-      <div className="my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="my-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
         {features.map((item) => {
           return (
             <Link
               href={"/features/#" + item.id}
               key={item.id}
-              className="features-card p-5 m-2 flex items-baseline flex-col rounded-md features-box-shadow cursor-pointer hover:scale-105 transition-all relative"
+              className="features-card max-w-md p-5 m-2 flex items-center flex-col rounded-md features-box-shadow cursor-pointer hover:scale-105 transition-all relative"
             >
-              <div>
-                <h2 className=" text-xl font-semibold">{item.title}</h2>
+              <div className="">
+                <h2 className="text-xl text-center font-semibold">
+                  {item.title}
+                </h2>
               </div>
-              <p className=" text-justify pt-5">{item.shortDescription}</p>
+              <p className=" text-center pt-5">{item.shortDescription}</p>
             </Link>
           );
         })}
@@ -338,12 +339,15 @@ export function WebFooter() {
       <div className="w-full sm:flex sm:items-center sm:justify-between">
         <Footer.Copyright href="#" by="LunchBox™" year={2024} />
         <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
-          <Footer.Icon href="#" icon={BsAt} />
-          <Footer.Icon href="#" icon={BsFacebook} />
-          <Footer.Icon href="#" icon={BsInstagram} />
-          <Footer.Icon href="#" icon={BsTwitter} />
+          {/* <Footer.Icon href="#" icon={BsAt} />
+          <Footer.Icon href="#" icon={BsFacebook} /> */}
+          <Footer.Icon
+            href="https://www.instagram.com/the.lunchbox.app?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+            icon={BsInstagram}
+          />
+          {/* <Footer.Icon href="#" icon={BsTwitter} />
           <Footer.Icon href="#" icon={BsGithub} />
-          <Footer.Icon href="#" icon={BsDribbble} />
+          <Footer.Icon href="#" icon={BsDribbble} /> */}
         </div>
       </div>
     </Footer>
