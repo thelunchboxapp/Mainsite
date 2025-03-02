@@ -1,25 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import FormfacadeEmbed from "@formfacade/embed-react";
+const FormfacadeEmbed = require("@formfacade/embed-react/dist/index");
 
 function PrivacyPolicyPage() {
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-
-  const handleDeleteRequest = async (e: React.FormEvent) => {
-    e.preventDefault();
-    // Here you would typically send the email to your backend to process the delete request
-    try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      setMessage("Your request to delete your account has been submitted.");
-    } catch (error) {
-      setMessage(
-        "There was an error submitting your request. Please try again later."
-      );
-    }
-  };
-
   return (
     <div className="sm:px-32 px-5 relative">
       <h2 className="hidden sm:block text-center text-2xl md:text-5xl font-semibold py-5">

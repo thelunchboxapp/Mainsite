@@ -1,11 +1,6 @@
 "use client";
 import Image from "next/image";
 import logo from "../../public/logo.png";
-import banner from "../../public/main.png";
-import screen1 from "../../public/preview1.png";
-import screen2 from "../../public/preview2.png";
-import screen3 from "../../public/preview3.png";
-import screen4 from "../../public/preview4.png";
 import Link from "next/link";
 import { Footer, Modal } from "flowbite-react";
 import { BsInstagram } from "react-icons/bs";
@@ -14,6 +9,7 @@ import { usePathname } from "next/navigation";
 import { features } from "../../data/data";
 import { AnimatePresence, motion } from "framer-motion";
 
+import banner from "../../public/banner.jpg";
 import image1 from "../../public/image1.jpg";
 import image2 from "../../public/image2.jpg";
 import image3 from "../../public/image3.jpg";
@@ -215,8 +211,9 @@ function Banner() {
       {/* FIRST SECTION OF BANNER */}
       <div className="flex justify-center w-52">
         <Image
-          src={logo}
+          src={banner}
           alt="Lunchbox banner: 'The' social network for food lovers"
+          className="rounded-md"
         />
       </div>
       {/* FIRST SECTION OF BANNER */}
