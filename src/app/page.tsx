@@ -83,6 +83,7 @@ export function Header() {
   const navigation = [
     { name: "Home", href: "" },
     { name: "Features", href: "features" },
+    { name: "Privacy", href: "privacy" },
     { name: "Contact us", href: "contact" },
   ];
 
