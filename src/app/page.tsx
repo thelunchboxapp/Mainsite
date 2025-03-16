@@ -334,8 +334,8 @@ export function ShowCase() {
       {/* <h2 className="text-5xl pb-10 font-semibold">
         Discover a world of possibilities
       </h2> */}
-      <div className="">
-        {/* <Link href="/">
+      {/* <div className=""> */}
+      {/* <Link href="/">
           <button className="p-3 mr-2 bg-[#1e1e1e] text-white">
             Coming soon to Android
           </button>
@@ -345,9 +345,9 @@ export function ShowCase() {
             Coming soon to IOS
           </button>
         </Link> */}
-        <h2 className="font-bold text-lg py-5">Coming soon to iOS</h2>
-        <WishlistModal text="Join the Waitlist" />
-      </div>
+      <h2 className="font-bold text-lg py-5">Coming soon to iOS</h2>
+      <WishlistModal text="Join the Waitlist" />
+      {/* </div> */}
     </div>
   );
 }
