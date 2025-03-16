@@ -9,11 +9,12 @@ import { usePathname } from "next/navigation";
 import { features } from "../../data/data";
 import { AnimatePresence, motion } from "framer-motion";
 
-import banner from "../../public/banner.jpg";
+import banner from "../../public/logo.png";
 import image1 from "../../public/image1.jpg";
 import image2 from "../../public/image2.jpg";
 import image3 from "../../public/image3.jpg";
 import image4 from "../../public/image4.jpg";
+import androidlogo from "../../public/android_logo.svg";
 
 const FormfacadeEmbed = require("@formfacade/embed-react/dist/index");
 
@@ -230,9 +231,29 @@ function Banner() {
             Share your favorite restaurants with your friends
           </p>
         </div>
-        <div className="mt-5"></div>
-        <div className="mt-5">
-          <WishlistModal text="Join the Waitlist" />
+        <div className="mt-7 flex text-center items-center flex-col">
+          <h2 className="text-xl">
+            Download now on
+            <Link
+              href="https://play.google.com/store/apps/details?id=com.tanishwasp.Lunchbox"
+              className="inline-flex items-center"
+            >
+              <Image
+                src={androidlogo}
+                alt="Android Logo"
+                width={72}
+                height={72}
+                className="ml-2"
+              />
+            </Link>
+            <Link
+              href="https://play.google.com/store/apps/details?id=com.tanishwasp.Lunchbox"
+              className="inline-flex items-center"
+            >
+              Android
+            </Link>
+          </h2>
+          {/* <WishlistModal text="Join the Waitlist" /> */}
         </div>
       </div>
     </div>
@@ -313,7 +334,7 @@ export function ShowCase() {
       {/* <h2 className="text-5xl pb-10 font-semibold">
         Discover a world of possibilities
       </h2> */}
-      <div className="mb-20 mt-5">
+      <div className="">
         {/* <Link href="/">
           <button className="p-3 mr-2 bg-[#1e1e1e] text-white">
             Coming soon to Android
@@ -324,9 +345,7 @@ export function ShowCase() {
             Coming soon to IOS
           </button>
         </Link> */}
-        <h2 className="font-bold text-lg py-10">
-          Coming soon to Android and IOS
-        </h2>
+        <h2 className="font-bold text-lg py-5">Coming soon to iOS</h2>
         <WishlistModal text="Join the Waitlist" />
       </div>
     </div>

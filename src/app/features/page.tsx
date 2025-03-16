@@ -7,8 +7,12 @@ import { ShowCase } from "../page";
 function Page() {
   return (
     <div className="sm:px-32 px-5 relative">
-      <h2 className="hidden sm:block text-center text-2xl md:text-5xl font-semibold py-5">Connecting food lovers</h2>
-      <h2 className="sm:hidden text-center text-2xl md:text-5xl font-semibold py-5">LunchBox Features</h2>
+      <h2 className="hidden sm:block text-center text-2xl md:text-5xl font-semibold py-5">
+        Connecting food lovers
+      </h2>
+      <h2 className="sm:hidden text-center text-2xl md:text-5xl font-semibold py-5">
+        LunchBox Features
+      </h2>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
         <Card />
         <Features />
@@ -33,7 +37,7 @@ function Features() {
     <div className="py-10">
       {features.map((item) => {
         return (
-          <div id={item.id} className="mb-10 scroll-mt-[85px]" >
+          <div id={item.id} className=" scroll-mt-[65px]">
             <h2 className="pb-5 md:text-xl font-bold">{item.title}</h2>
             <p className="md:text-lg"> {item.description} </p>
           </div>
