@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React, { useState } from "react";
 // const FormfacadeEmbed = require("@formfacade/embed-react/dist/index");
 
@@ -157,6 +158,12 @@ function PrivacyPolicyPage() {
           Privacy Policy or our data practices, please contact us at:
         </p>
         <p className="font-medium">Email: support@thelunchboxapp.com</p>
+      </section>
+
+      <section className="mt-10">
+        <Link href="/csae-standards" className="text-blue-600 hover:underline">
+          Learn about our CSAE Prevention Standards
+        </Link>
       </section>
     </div>
   );
