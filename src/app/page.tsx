@@ -15,6 +15,7 @@ import image2 from "../../public/image2.jpg";
 import image3 from "../../public/image3.jpg";
 import image4 from "../../public/image4.jpg";
 import androidlogo from "../../public/android_logo.svg";
+import iosLogo from "../../public/apple_logo.jpg";
 
 const FormfacadeEmbed = require("@formfacade/embed-react/dist/index");
 
@@ -158,7 +159,7 @@ export function Header() {
         <span className="text-3xl font-semibold">LunchBox</span>
       </div>
       <div className="hidden md:flex items-center">
-        <WishlistModal />
+        {/* <WishlistModal /> */}
 
         {navigation.map((item) => {
           return (
@@ -176,35 +177,35 @@ export function Header() {
   );
 }
 
-function WishlistModal({ text }: { text?: string }) {
-  const [openModal, setOpenModal] = useState(false);
-  return (
-    <div className="flex items-center justify-center">
-      <button
-        className={
-          text ? "p-3 rounded-md mr-2 bg-[#1e1e1e] text-white" : "p-3 m-1"
-        }
-        onClick={() => setOpenModal(true)}
-      >
-        {text || "Waitlist"}
-      </button>
-      <Modal dismissible show={openModal} onClose={() => setOpenModal(false)}>
-        <Modal.Header>Wishlist Submit</Modal.Header>
-        <Modal.Body>
-          <FormfacadeEmbed
-            formFacadeURL="https://formfacade.com/include/106307999336389647231/form/1FAIpQLSejNNBBeuGdBTr0WI-t-iAWD3KZDid4UuIYfwhXbmvMYgDCjw/classic.js/?div=ff-compose"
-            onSubmitForm={() => console.log("Form submitted")}
-          />
-        </Modal.Body>
-        <Modal.Footer>
-          <button color="gray" onClick={() => setOpenModal(false)}>
-            Close
-          </button>
-        </Modal.Footer>
-      </Modal>
-    </div>
-  );
-}
+// function WishlistModal({ text }: { text?: string }) {
+//   const [openModal, setOpenModal] = useState(false);
+//   return (
+//     <div className="flex items-center justify-center">
+//       <button
+//         className={
+//           text ? "p-3 rounded-md mr-2 bg-[#1e1e1e] text-white" : "p-3 m-1"
+//         }
+//         onClick={() => setOpenModal(true)}
+//       >
+//         {text || "Waitlist"}
+//       </button>
+//       <Modal dismissible show={openModal} onClose={() => setOpenModal(false)}>
+//         <Modal.Header>Wishlist Submit</Modal.Header>
+//         <Modal.Body>
+//           <FormfacadeEmbed
+//             formFacadeURL="https://formfacade.com/include/106307999336389647231/form/1FAIpQLSejNNBBeuGdBTr0WI-t-iAWD3KZDid4UuIYfwhXbmvMYgDCjw/classic.js/?div=ff-compose"
+//             onSubmitForm={() => console.log("Form submitted")}
+//           />
+//         </Modal.Body>
+//         <Modal.Footer>
+//           <button color="gray" onClick={() => setOpenModal(false)}>
+//             Close
+//           </button>
+//         </Modal.Footer>
+//       </Modal>
+//     </div>
+//   );
+// }
 
 function Banner() {
   return (
@@ -231,7 +232,7 @@ function Banner() {
             Share your favorite restaurants with your friends
           </p>
         </div>
-        <div className="mt-7 flex text-center items-center flex-col">
+        {/* <div className="mt-7 flex text-center items-center flex-col">
           <h2 className="text-xl">
             Download now on
             <Link
@@ -254,6 +255,45 @@ function Banner() {
             </Link>
           </h2>
           {/* <WishlistModal text="Join the Waitlist" /> */}
+        {/* </div> */}
+        <div className="mt-7 flex text-center items-center flex-col">
+          <h2 className="text-xl">
+            Download now on
+            <Link
+              href="https://play.google.com/store/apps/details?id=com.tanishwasp.Lunchbox"
+              className="inline-flex items-center"
+            >
+              <Image
+                src={androidlogo}
+                alt="Android Logo"
+                width={60}
+                height={60}
+                className="ml-2"
+              />
+            </Link>
+            <Link
+              href="https://play.google.com/store/apps/details?id=com.tanishwasp.Lunchbox"
+              className="inline-flex items-center"
+            >
+              Android
+            </Link>
+            <span className="mx-2"> |</span>
+            <Link
+              href="https://apps.apple.com/us/app/the-lunchbox-app/id6744665326"
+              className="inline-flex items-center"
+            >
+              {/* If you have an iOS logo image, use this: */}
+              <Image
+                src={iosLogo}
+                alt="iOS Logo"
+                width={40}
+                height={40}
+                className="ml-2"
+              />
+
+              <span className="ml-1">iOS</span>
+            </Link>
+          </h2>
         </div>
       </div>
     </div>
@@ -345,8 +385,8 @@ export function ShowCase() {
             Coming soon to IOS
           </button>
         </Link> */}
-      <h2 className="font-bold text-lg py-5">Coming soon to iOS</h2>
-      <WishlistModal text="Join the Waitlist" />
+      {/* <h2 className="font-bold text-lg py-5">Coming soon to iOS</h2> */}
+      {/* <WishlistModal text="Join the Waitlist" /> */}
       {/* </div> */}
     </div>
   );
