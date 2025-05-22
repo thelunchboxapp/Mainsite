@@ -10,10 +10,14 @@ import { features } from "../../data/data";
 import { AnimatePresence, motion } from "framer-motion";
 
 import banner from "../../public/logo.png";
-import image1 from "../../public/image1.jpg";
-import image2 from "../../public/image2.jpg";
-import image3 from "../../public/image3.jpg";
-import image4 from "../../public/image4.jpg";
+// import image1 from "../../public/image1.jpg";
+// import image2 from "../../public/image2.jpg";
+// import image3 from "../../public/image3.jpg";
+// import image4 from "../../public/image4.jpg";
+import image1 from "../../public/iosImage1.png";
+import image3 from "../../public/iosImage2.png";
+import image2 from "../../public/iosImage3.png";
+import image4 from "../../public/iosImage4.png";
 import androidlogo from "../../public/android_logo.svg";
 import iosLogo from "../../public/apple_logo.jpg";
 
@@ -277,22 +281,24 @@ function Banner() {
             >
               Android
             </Link>
-            <span className="mx-2"> |</span>
-            <Link
-              href="https://apps.apple.com/us/app/the-lunchbox-app/id6744665326"
-              className="inline-flex items-center"
-            >
-              {/* If you have an iOS logo image, use this: */}
-              <Image
-                src={iosLogo}
-                alt="iOS Logo"
-                width={40}
-                height={40}
-                className="ml-2"
-              />
+            <div className="mt-3">
+              <Link
+                href="https://apps.apple.com/us/app/the-lunchbox-app/id6744665326"
+                className="inline-flex items-center"
+              >
+                <span className="mx-2"> and </span>
+                {/* If you have an iOS logo image, use this: */}
+                <Image
+                  src={iosLogo}
+                  alt="iOS Logo"
+                  width={50}
+                  height={30}
+                  // className="ml"
+                />
 
-              <span className="ml-1">iOS</span>
-            </Link>
+                <span className="ml-1">iOS</span>
+              </Link>
+            </div>
           </h2>
         </div>
       </div>
