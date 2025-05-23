@@ -14,10 +14,12 @@ import banner from "../../public/logo.png";
 // import image2 from "../../public/image2.jpg";
 // import image3 from "../../public/image3.jpg";
 // import image4 from "../../public/image4.jpg";
+// import image1 from "../../public/ios_new_image1.png";
 import image1 from "../../public/iosImage1.png";
-import image3 from "../../public/iosImage2.png";
-import image2 from "../../public/iosImage3.png";
+import image2 from "../../public/iosImage2.png";
+import image3 from "../../public/iosImage3.png";
 import image4 from "../../public/iosImage4.png";
+
 import androidlogo from "../../public/android_logo.svg";
 import iosLogo from "../../public/apple_logo.jpg";
 
@@ -313,25 +315,25 @@ function Features() {
         <Image
           src={image1}
           alt="Lunchbox banner: 'The' meeting place for restaurant enthusiasts"
-          width={200}
+          width={220}
           className="rounded-md"
         />
         <Image
           src={image2}
           alt="Lunchbox banner: 'The' meeting place for restaurant enthusiasts"
-          width={200}
+          width={220}
           className="rounded-md"
         />
         <Image
           src={image3}
           alt="Lunchbox banner: 'The' meeting place for restaurant enthusiasts"
-          width={200}
+          width={220}
           className="rounded-md"
         />
         <Image
           src={image4}
           alt="Lunchbox banner: 'The' meeting place for restaurant enthusiasts"
-          width={200}
+          width={220}
           className="rounded-md"
         />
       </div>
